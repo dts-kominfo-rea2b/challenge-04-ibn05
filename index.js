@@ -38,16 +38,16 @@ const dates = [
 
 const createDate = (dates, index) => {
     let arrDates = [];
-    if (index) {
-        return (new Date(dates[index]).getTime() / 1000).toString();
-    }
 
-    dates.sort().forEach((data) => {
+    dates.forEach((data) => {
         let date = (new Date(data).getTime() / 1000).toString();
         arrDates.push(date);
     });
 
-    return arrDates.join("-");
+    arrDates.sort();
+
+    if (index === undefined) return arrDates.join("-");
+    return arrDates.reverse()[index - 1];
 };
 
 // ! JANGAN DIMODIFIKASI
