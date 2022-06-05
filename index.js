@@ -46,8 +46,8 @@ const createDate = (dates, index) => {
 
     arrDates.sort();
 
-    if (index) return arrDates.join("-");
-    return arrDates.reverse()[index - 1];
+    if (index) return arrDates.reverse()[index - 1];
+    return arrDates.join("-");
 };
 
 // ! JANGAN DIMODIFIKASI
