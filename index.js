@@ -7,18 +7,46 @@ const dates = [
     "2020-02-03 UTC+7", // 1580662800 (epoch time, dalam detik)
 ];
 
+// const convertDate = (dates) => {
+//     //convert to local;
+//     let localDate = [];
+//     dates.forEach((data, i) => {
+//         let date = new Date(data).toLocaleString();
+//         localDate.push(date);
+//     });
+
+//     //convert local to epoch
+//     localEpoch = [];
+//     localDate
+//         .sort()
+//         .reverse()
+//         .forEach((data, i) => {
+//             let date = new Date(data).getTime() / 1000;
+//             localEpoch.push(date);
+//         });
+
+//     return localEpoch;
+// };
+
+// const createDate = (dates, index) => {
+//     let localDate = convertDate(dates);
+
+//     if (index) return localDate[index - 1];
+//     return localDate.join("-");
+// };
 // TODO: Buatlah fungsi createDate
+
 const createDate = (dates, index) => {
     let arrDates = [];
-    dates
-        .sort()
-        .reverse()
-        .forEach((data) => {
-            let date = (new Date(data).getTime() / 1000).toString();
-            arrDates.push(date);
-        });
+    if (index) {
+        return (new Date(dates[index]).getTime() / 1000).toString();
+    }
 
-    if (index) return arrDates[index + 1];
+    dates.sort().forEach((data) => {
+        let date = (new Date(data).getTime() / 1000).toString();
+        arrDates.push(date);
+    });
+
     return arrDates.join("-");
 };
 
