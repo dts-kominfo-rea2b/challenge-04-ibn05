@@ -44,10 +44,13 @@ const createDate = (dates, index) => {
         arrDates.push(date);
     });
 
-    arrDates.sort();
-
-    if (index) return arrDates.reverse()[index - 1];
-    return arrDates.join("-");
+    if (index === undefined) {
+        arrDates.sort((x, y) => x - y);
+        return arrDates.join("-");
+    } else {
+        arrDates.sort((x, y) => x + y);
+        return arrDates[index];
+    }
 };
 
 // ! JANGAN DIMODIFIKASI
