@@ -46,7 +46,7 @@ const createDate = (dates, index) => {
 
     arrDates.sort();
 
-    if (index === undefined) return arrDates.join("-");
+    if (index) return arrDates.join("-");
     return arrDates.reverse()[index - 1];
 };
 
